@@ -1,0 +1,145 @@
+:root {
+  --primaryColor: #dabfff;
+  --secondaryColor: #4f518c;
+  --textColor: #907ad6;
+  --lightColor: #7fdeff;
+  --darkColor: #2c2a4a;
+}
+
+@font-face {
+  font-family: "vazir";
+  src: url("/fonts/vazir.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: vazir;
+  font-weight: normal;
+  direction: rtl;
+  text-align: right;
+}
+
+body {
+  margin: 0;
+  font-family: inherit;
+}
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--darkColor);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--lightColor);
+  border-radius: 25px;
+  box-shadow: 0 0 5px var(--lightColor);
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  background: url("../images/bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.open,
+.close {
+  position: absolute;
+  top: 25px;
+  font-size: 2.3rem;
+  color: var(--textColor);
+  width: 50px;
+  height: 50px;
+  background-color: var(--darkColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.open {
+  left: 25px;
+  z-index: 1;
+}
+.close {
+  right: 25px;
+  z-index: 999;
+  background-color: transparent;
+}
+.menu-layer-1 {
+  width: 0;
+  height: 100vh;
+  background-color: var(--darkColor);
+  transition: width 0.5s linear;
+  transition-delay: 0.8s;
+  z-index: 999;
+}
+.menu-layer-2 {
+  width: 0;
+  height: 100vh;
+  background-color: var(--secondaryColor);
+  transition: width 0.5s linear;
+  transition-delay: 0.6s;
+  z-index: 999;
+}
+.menu-layer-3 {
+  width: 0;
+  height: 100vh;
+  background-color: var(--textColor);
+  transition: width 0.5s linear;
+  transition-delay: 0.4s;
+  z-index: 999;
+}
+.menu-layer-4 {
+  position: relative;
+  width: 0;
+  height: 100vh;
+  background-color: var(--primaryColor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  overflow: hidden;
+  transition: width 0.5s linear;
+  transition-delay: 0.2s;
+  z-index: 999;
+}
+.menu-layer-4 a {
+  text-decoration: none;
+  width: 0;
+  padding: 0 50px 0 0;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: width 0.5s linear;
+  transition-delay: 0s;
+}
+.menu-layer-4 a i {
+  margin-left: 10px;
+}
+.menu-layer-1.active {
+  width: 450px;
+  transition-delay: 0.2s;
+}
+.menu-layer-1.active .menu-layer-2 {
+  width: 400px;
+  transition-delay: 0.4s;
+}
+.menu-layer-1.active .menu-layer-3 {
+  width: 350px;
+  transition-delay: 0.6s;
+}
+.menu-layer-1.active .menu-layer-4 {
+  width: 300px;
+  transition-delay: 0.8s;
+}
+.menu-layer-1.active .menu-layer-4 a {
+  width: 100%;
+  transition-delay: 1s;
+}
